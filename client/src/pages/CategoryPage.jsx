@@ -12,10 +12,10 @@ const CategoryPage = () => {
     const {category}= useParams()
     const dispatch = useDispatch();
      const listings = useSelector((state) => state.listings);
-    
+    const API_URL = process.env.API_URL;
       const getFeedListings = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/properties?category=${category}`,
+          const response = await fetch(/* `http://localhost:5000/properties?category=${category}` */`${API_URL}/properties?category=${category}`,
             {
               method: "GET",
             }

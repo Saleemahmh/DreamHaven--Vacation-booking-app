@@ -12,12 +12,12 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(true)
   const { search } = useParams()
   const listings = useSelector((state) => state.listings)
-
+const API_URL= process.env.API_URL;
   const dispatch = useDispatch()
 
   const getSearchListings = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/properties/search/${search}`, {
+      const response = await fetch(/* `http://localhost:5000/properties/search/${search}` */`${API_URL}/properties/search/${search}`, {
         method: "GET"
       })
 

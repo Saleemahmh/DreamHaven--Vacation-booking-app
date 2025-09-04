@@ -11,13 +11,13 @@ const TripList = () => {
   const [loading, setLoading] = useState(true);
   const userId = useSelector((state) => state.user._id);
   const tripList = useSelector((state) => state.user.tripList);
-
+  const API_URL= process.env.API_URL;
   const dispatch = useDispatch();
 
   const getTripList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/users/${userId}/trips`,
+       /*  `http://localhost:5000/users/${userId}/trips` */`${API_URL}/users/${userId}/trips`,
         {
           method: "GET",
         }

@@ -55,7 +55,7 @@ const ListingDetails = () => {
   const customerId = useSelector((state) => state?.user?._id);
 
   const navigate = useNavigate();
-
+  const API_URL = process.env.API_URL;
   const handleSubmit = async () => {
     try {
       const bookingForm = {
@@ -67,7 +67,7 @@ const ListingDetails = () => {
         totalPrice: listing.price * dayCount,
       };
 
-      const response = await fetch("http://localhost:5000/bookings/create", {
+      const response = await fetch(/* "http://localhost:5000/bookings/create" */`${API_URL}/bookings/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

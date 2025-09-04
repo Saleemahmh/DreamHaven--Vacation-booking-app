@@ -11,9 +11,10 @@ const PropertyList = () => {
     const user = useSelector((state)=> state.user);
     const propertyList = user?.propertyList;
     const dispatch = useDispatch();
+    const API_URL = process.env.API_URL;
     const getPropertyList = async()=>{
         try{
-            const response = await fetch(`http://localhost:5000/users/${user._id}/properties`,{
+            const response = await fetch(/* `http://localhost:5000/users/${user._id}/properties` */`${API_URL}/users/${user._id}/properties`,{
                 method:"GET"
             })
             const data = await response.json();

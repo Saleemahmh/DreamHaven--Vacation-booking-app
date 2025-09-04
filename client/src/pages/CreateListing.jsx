@@ -129,7 +129,8 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("http://localhost:5000/properties/create", {
+      const API_URL= process.env.API_URL;
+      const response = await fetch(/* "http://localhost:5000/properties/create" */`${API_URL}/properties/create`, {
         method: "POST",
         body: listingForm,
       });

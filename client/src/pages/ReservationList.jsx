@@ -11,13 +11,13 @@ const ReservationList = () => {
   const [loading, setLoading] = useState(true);
   const userId = useSelector((state) => state.user._id);
   const reservationList = useSelector((state) => state.user.reservationList);
-
+const API_URL= process.env.API_URL;
   const dispatch = useDispatch();
 
   const getReservationList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/users/${userId}/reservations`,
+        /* `http://localhost:5000/users/${userId}/reservations` */ `${API_URL}/users/${userId}/reservations`,
         {
           method: "GET",
         }

@@ -22,7 +22,7 @@ const RegisterPage = () => {
       [name]: name === "profileImage" ? files[0] : value,
     });
   };
-
+const API_URL = process.env.API_URL;
   const [passwordMatch, setPasswordMatch] = useState(true)
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const RegisterPage = () => {
         register_form.append(key, formData[key])
       }
 
-      const response = await fetch("http://localhost:5000/auth/register", {
+      const response = await fetch(/* "http://localhost:5000/auth/register" */`${API_URL}/auth/register`, {
         method: "POST",
         body: register_form
       })
