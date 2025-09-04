@@ -29,7 +29,7 @@ router.post("/register", upload.single('profileImage'),async(req,res) => {
 
         const profileImage = req.file
         if(!profileImage){
-            return res.status(400).send("no file uplaoded")
+            return res.status(400).send("no file uploaded")
         }
 
         /*path to the uploaded profile photo*/
